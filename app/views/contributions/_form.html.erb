@@ -1,0 +1,32 @@
+<%= form_with(model: contribution) do |form| %>
+  <% if contribution.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(contribution.errors.count, "error") %> prohibited this contribution from being saved:</h2>
+
+      <ul>
+        <% contribution.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user, style: "display: block" %>
+    <%= form.text_field :user %>
+  </div>
+
+  <div>
+    <%= form.label :amount, style: "display: block" %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div>
+    <%= form.label :reason, style: "display: block" %>
+    <%= form.text_field :reason %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
